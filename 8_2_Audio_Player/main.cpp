@@ -6,6 +6,7 @@ DA7212 audio;
 int16_t waveform[kAudioTxBufferSize];
 EventQueue queue(32 * EVENTS_EVENT_SIZE);
 Thread t;
+//InterruptIn button(SW2);
   
 int song[42] = {
    261, 261, 392, 392, 440, 440, 392,
@@ -46,7 +47,7 @@ int main(void)
      while(length--)
      {
        queue.call(playNote, song[i]);
-       if(length <= 1) wait(1.0);
+       if(length <= 1) wait(1);
      }
    }
 }
